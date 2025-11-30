@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Bahasa Arab</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    /* Particles Background */
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        animation: float-particle 20s infinite;
+    }
+    
+    .content-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+    
+    h1 {
+        text-align: center;
+        padding: 40px 20px 20px;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: fadeInDown 0.8s ease;
+    }
+    
+    .subtitle {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s ease;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px 0 50px;
+    }
+    
+    /* Hero Image */
+    .hero-section {
+        text-align: center;
+        margin: 30px 0;
+        animation: fadeInUp 1s ease;
+    }
+    
+    .hero-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 100px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        animation: float 3s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-image::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: shine 3s infinite;
+    }
+    
+    /* CARD */
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+    }
+    
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+    
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+    }
+    
+    .card:hover::before {
+        left: 100%;
+    }
+    
+    .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(118, 75, 162, 0.4);
+        background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    }
+    
+    .card:active {
+        transform: translateY(-5px) scale(0.98);
+    }
+    
+    .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .card:nth-child(1) .icon-wrapper {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .card:nth-child(2) .icon-wrapper {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 8px 20px rgba(240, 147, 251, 0.4);
+    }
+    
+    .card:nth-child(3) .icon-wrapper {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+    }
+    
+    .card:nth-child(4) .icon-wrapper {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        box-shadow: 0 8px 20px rgba(67, 233, 123, 0.4);
+    }
+    
+    .card:hover .icon-wrapper {
+        transform: rotate(360deg) scale(1.1);
+    }
+    
+    .sound-active .icon-wrapper {
+        animation: pulse 0.3s ease-in-out;
+    }
+    
+    .card-content {
+        flex: 1;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 5px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .card-description {
+        font-size: 0.95rem;
+        color: #718096;
+        margin: 0;
+    }
+    
+    /* Ripple Effect */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+    }
+    
+    /* ANIMATIONS */
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    @keyframes shine {
+        0% { transform: rotate(45deg) translate(-100%, -100%); }
+        100% { transform: rotate(45deg) translate(100%, 100%); }
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes float-particle {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+        .card {
+            padding: 20px;
+        }
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+        }
+        .card-title {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+<body>
+<!-- Particles Background -->
+<div class="particles" id="particles"></div>
+
+<!-- Sound Effect -->
+<audio id="clickSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f148d464e.mp3?filename=click-124467.mp3">
+</audio>
+
+<div class="content-wrapper">
+    <h1>🕌 Pembelajaran Bahasa Arab</h1>
+    <p class="subtitle">Belajar Bahasa Arab dengan Mudah dan Menyenangkan</p>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-image">
+            🕌
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="card" onclick="playClick(this); go('menu_bab.html')">
+            <div class="icon-wrapper">▶️</div>
+            <div class="card-content">
+                <div class="card-title">Mulai Belajar</div>
+                <p class="card-description">Jelajahi materi pembelajaran bahasa Arab</p>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div class="card" onclick="playClick(this); go('tentang.html')">
+            <div class="icon-wrapper">ℹ️</div>
+            <div class="card-content">
+                <div class="card-title">Tentang Modul</div>
+                <p class="card-description">Informasi tentang aplikasi pembelajaran</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Create floating particles
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Ripple effect
+function createRipple(e, element) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    
+    element.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+// Play click sound with animation
+function playClick(element, event) {
+    const s = document.getElementById("clickSound");
+    s.currentTime = 0;
+    s.volume = 0.3;
+    s.play();
+    
+    // Add sound wave animation
+    element.classList.add('sound-active');
+    setTimeout(() => {
+        element.classList.remove('sound-active');
+    }, 300);
+    
+    // Create ripple effect
+    if (event) {
+        createRipple(event, element);
+    }
+}
+
+// Navigate to page
+function go(page) {
+    setTimeout(() => {
+        window.location.href = page;
+    }, 200);
+}
+
+// Add click event listeners to cards
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            createRipple(e, this);
+        });
+    });
+});
+</script>
+</body>
+</html>

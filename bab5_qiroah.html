@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القراءة – باب 5 الهوايات</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    padding:25px;
+}
+
+/* CARD CONTAINER */
+.card{
+    width:90%;
+    max-width:900px;
+    margin:30px auto;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.25);
+    animation:fadeUp .8s ease forwards;
+    transform:translateY(40px);
+    opacity:0;
+}
+
+.card h2{
+    text-align:center;
+    font-size:1.7rem;
+    margin-bottom:15px;
+    font-weight:700;
+    color:#333;
+}
+
+/* IMAGE */
+.q-img{
+    width:100%;
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* BACK BUTTON */
+.back{text-align:center;margin-top:40px;}
+.back a{
+    padding:12px 25px;
+    background:white;
+    border-radius:12px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    box-shadow:0 6px 25px rgba(0,0,0,0.25);
+}
+.back a:hover{background:#f0f0f0;transform:scale(1.05);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(45px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+</style>
+</head>
+
+<body>
+
+<h1 style="text-align:center;color:white;font-size:2.3rem;font-weight:700;text-shadow:0 4px 15px rgba(0,0,0,0.4);">
+    📖 القراءة – باب 5
+</h1>
+<p style="text-align:center;color:white;opacity:0.9;margin-bottom:25px;">
+    Qira'ah Bab الهوايات
+</p>
+
+<!-- ===================== GAMBAR 1 ===================== -->
+<div class="card">
+    <h2>📘 نص القراءة</h2>
+    <img src="images/qiroah5.png" class="q-img" alt="Qiraah Bab 5 - Gambar 1">
+</div>
+
+<!-- Jika ada gambar tambahan, aktifkan ini -->
+<!--
+<div class="card">
+    <h2>📘 نص القراءة (Bagian 2)</h2>
+    <img src="bab5_qiroah_2.jpg" class="q-img" alt="Qiraah Bab 5 - Gambar 2">
+</div>
+-->
+
+<div class="back">
+    <a href="bab5.html">⬅ العودة (Kembali)</a>
+</div>
+
+</body>
+</html>

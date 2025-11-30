@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Aplikasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    padding-bottom:60px;
+}
+
+/* PARTICLES */
+.particles{
+    position:fixed;width:100%;height:100%;
+    top:0;left:0;pointer-events:none;z-index:0;
+}
+.particle{
+    position:absolute;width:5px;height:5px;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    animation:float 15s linear infinite;
+}
+
+/* TITLE */
+h1{
+    text-align:center;padding-top:40px;padding-bottom:10px;
+    font-size:2.4rem;color:white;
+    text-shadow:0 4px 12px rgba(0,0,0,.4);
+    font-weight:700;
+}
+
+.subtitle{
+    text-align:center;
+    color:white;
+    opacity:.85;
+    margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+    width:90%;max-width:850px;margin:auto;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+    margin-bottom:30px;
+    animation:fadeUp .8s ease forwards;
+    transform:translateY(40px);
+    opacity:0;
+}
+
+.card h2{
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:15px;
+    color:#333;
+}
+
+.card p{
+    line-height:1.7;
+    color:#444;
+    margin-bottom:12px;
+    font-size:1rem;
+}
+
+/* TEAM LIST */
+.team-list{
+    margin-top:15px;
+    padding-left:10px;
+}
+.team-item{
+    background:#f7f7f7;
+    padding:12px 15px;
+    border-radius:12px;
+    font-weight:600;
+    margin-bottom:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* BACK BUTTON */
+.back{text-align:center;margin-top:20px;}
+.back a{
+    display:inline-block;padding:12px 25px;
+    background:white;
+    border-radius:14px;font-weight:600;
+    text-decoration:none;color:#333;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+.back a:hover{
+    transform:scale(1.05);
+}
+
+/* ANIMATIONS */
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(45px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="particles" id="particles"></div>
+
+<h1>ℹ️ Tentang Aplikasi</h1>
+<p class="subtitle">Informasi aplikasi pembelajaran Bahasa Arab Kelas 10 MA</p>
+
+<div class="card">
+    <h2>🎯 Tujuan Aplikasi</h2>
+    <p>
+        Aplikasi ini dibuat sebagai media pembelajaran interaktif Bahasa Arab 
+        untuk siswa <strong>Kelas 10 Madrasah Aliyah (MA)</strong>.  
+        Materi disusun agar mudah dipahami, praktis digunakan, dan dapat membantu 
+        siswa belajar mandiri melalui audio, video, qiroah, mufrodat, dan latihan soal.
+    </p>
+</div>
+
+<div class="card">
+    <h2>👥 Tim Pengembang</h2>
+    <p>Aplikasi ini dikembangkan oleh tim penyusun berikut:</p>
+
+    <div class="team-list">
+        <div class="team-item">Putri Ryenata — 223131081</div>
+        <div class="team-item">Insania Fauziah — 223121085</div>
+        <div class="team-item">Darwisy Ghilman — 223121095</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>📘 Catatan</h2>
+    <p>
+        Aplikasi ini dapat digunakan sebagai bahan ajar tambahan, media belajar mandiri,
+        dan latihan penguatan materi untuk peserta didik.
+    </p>
+</div>
+
+<div class="back">
+    <a href="index.html">⬅ Kembali</a>
+</div>
+
+<script>
+function createParticles(){
+    const box=document.getElementById("particles");
+    for(let i=0;i<35;i++){
+        const p=document.createElement("div");
+        p.classList.add("particle");
+        p.style.left=Math.random()*100+"%";
+        p.style.animationDelay=Math.random()*5+"s";
+        p.style.animationDuration=12+Math.random()*10+"s";
+        box.appendChild(p);
+    }
+}
+document.addEventListener("DOMContentLoaded",()=>createParticles());
+</script>
+
+</body>
+</html>

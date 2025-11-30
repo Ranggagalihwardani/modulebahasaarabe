@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القواعد – باب 5 الهوايات</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    padding:25px;
+}
+
+/* CARD */
+.card{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    background:rgba(255,255,255,0.92);
+    border-radius:22px;
+    padding:25px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 12px 35px rgba(0,0,0,0.25);
+    animation:fadeUp .8s ease forwards;
+    transform:translateY(40px);
+    opacity:0;
+}
+
+.card h2{
+    text-align:center;
+    font-size:1.7rem;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+/* IMAGE */
+.q-img{
+    width:100%;
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* BACK BUTTON */
+.back{text-align:center;margin-top:40px;}
+.back a{
+    padding:12px 25px;
+    background:white;
+    border-radius:12px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    box-shadow:0 6px 25px rgba(0,0,0,0.25);
+}
+.back a:hover{background:#f0f0f0;transform:scale(1.05);}
+
+/* ANIM */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(45px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+</style>
+
+</head>
+<body>
+
+<h1 style="text-align:center;color:white;font-size:2.3rem;font-weight:700;text-shadow:0 4px 15px rgba(0,0,0,0.4);">
+    📘 القواعد – باب 5
+</h1>
+<p style="text-align:center;color:white;opacity:0.9;margin-bottom:25px;">
+    Kaidah Bahasa Arab – Bab الهوايات
+</p>
+
+<!-- ===================== GAMBAR KAIDAH ===================== -->
+<div class="card">
+    <h2>📘 نص القواعد</h2>
+
+    <!-- Gambar kaidah (ganti sesuai file kamu) -->
+    <img src="images/qowaid5.jpg" class="q-img" alt="Qowaid Bab 5">
+</div>
+
+<!-- Jika ada tambahan halaman -->
+<!--
+<div class="card">
+    <h2>📘 نص القواعد – الصفحة الثانية</h2>
+    <img src="bab5_qowaid_2.jpg" class="q-img" alt="Qowaid Bab 5 halaman 2">
+</div>
+-->
+
+<div class="back">
+    <a href="bab5.html">⬅ العودة (Kembali)</a>
+</div>
+
+</body>
+</html>

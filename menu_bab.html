@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Bab Pembelajaran</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Particles */
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.55);
+        animation: particle-float 18s linear infinite;
+    }
+
+    /* Header */
+    h1 {
+        text-align: center;
+        padding-top: 35px;
+        padding-bottom: 10px;
+        color: white;
+        font-size: 2.3rem;
+        font-weight: 700;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.35);
+        animation: fadeInDown 0.8s ease;
+    }
+    p.subtitle {
+        text-align: center;
+        color: rgba(255,255,255,0.9);
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        animation: fadeInDown 1s ease;
+    }
+
+    /* Container */
+    .container {
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+        padding-bottom: 50px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Card */
+    .card {
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(12px);
+        padding: 25px;
+        border-radius: 22px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+        cursor: pointer;
+        transition: all 0.35s;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.3s; }
+    .card:nth-child(3) { animation-delay: 0.4s; }
+    .card:nth-child(4) { animation-delay: 0.5s; }
+    .card:nth-child(5) { animation-delay: 0.6s; }
+    .card:nth-child(6) { animation-delay: 0.7s; }
+    .card:nth-child(7) { animation-delay: 0.8s; }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.03);
+        background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        box-shadow: 0 20px 55px rgba(118,75,162,0.45);
+    }
+
+    .card:active { transform: scale(0.97); }
+
+    /* Icon Wrapper */
+    .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: white;
+        transition: 0.3s;
+    }
+
+    /* Gradient per card */
+    .card:nth-child(1) .icon-wrapper { background: linear-gradient(135deg,#667eea,#764ba2); }
+    .card:nth-child(2) .icon-wrapper { background: linear-gradient(135deg,#f093fb,#f5576c); }
+    .card:nth-child(3) .icon-wrapper { background: linear-gradient(135deg,#4facfe,#00f2fe); }
+    .card:nth-child(4) .icon-wrapper { background: linear-gradient(135deg,#43e97b,#38f9d7); }
+    .card:nth-child(5) .icon-wrapper { background: linear-gradient(135deg,#ff9a9e,#fad0c4); }
+    .card:nth-child(6) .icon-wrapper { background: linear-gradient(135deg,#a18cd1,#fbc2eb); }
+    .card:nth-child(7) .icon-wrapper { background: linear-gradient(135deg,#f6d365,#fda085); }
+
+    .card:hover .icon-wrapper {
+        transform: rotate(360deg) scale(1.1);
+    }
+
+    .back{text-align:center;margin-top:40px;}
+.back a{
+    display:inline-block;padding:12px 25px;
+    background:rgba(255,255,255,.9);
+    border-radius:14px;font-weight:600;
+    text-decoration:none;color:#333;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+.back a:hover{transform:scale(1.05);background:white;}
+
+    /* Ripple */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.6);
+        transform: scale(0);
+        animation: ripple-effect 0.6s ease-out;
+        pointer-events: none;
+    }
+
+    .card-content { flex: 1; }
+    .title { font-size: 1.4rem; font-weight: 700; color: #2d3748; }
+    .subtitle2 { color: #718096; font-size: 0.95rem; }
+
+    /* Animations */
+    @keyframes gradientFlow {
+        0% { background-position:0% 50%; }
+        50% { background-position:100% 50%; }
+        100% { background-position:0% 50%; }
+    }
+    @keyframes fadeInDown {
+        from { opacity:0; transform:translateY(-25px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeInUp {
+        from { opacity:0; transform:translateY(25px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+    @keyframes ripple-effect {
+        to { transform: scale(4); opacity: 0; }
+    }
+    @keyframes particle-float {
+        from { transform: translateY(100vh); }
+        to { transform: translateY(-100vh); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="particles" id="particles"></div>
+
+<!-- Sound -->
+<audio id="clickSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f148d464e.mp3?filename=click-124467.mp3">
+</audio>
+
+<h1>📖 اختر الدرس</h1>
+<p class="subtitle">Silakan pilih bab pembelajaran</p>
+
+<div class="container">
+
+    <div class="card" onclick="playClick(this); go('bab1.html')">
+        <div class="icon-wrapper">1️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 1 – التعارف</div>
+            <div class="subtitle2">Perkenalan & kalimat dasar</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab2.html')">
+        <div class="icon-wrapper">2️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 2 – الأسرة والبيت</div>
+            <div class="subtitle2">Keluarga & rumah</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab3.html')">
+        <div class="icon-wrapper">3️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 3 – المدرسة</div>
+            <div class="subtitle2">Sekolah & aktivitas belajar</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab4.html')">
+        <div class="icon-wrapper">4️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 4 – الحياة اليومية</div>
+            <div class="subtitle2">Kegiatan sehari-hari</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab5.html')">
+        <div class="icon-wrapper">5️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 5 – الهوايات</div>
+            <div class="subtitle2">Hobi & minat</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab6.html')">
+        <div class="icon-wrapper">6️⃣</div>
+        <div class="card-content">
+            <div class="title">باب 6 – الطعام والشراب</div>
+            <div class="subtitle2">Makanan & minuman</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('evaluasi_akhir.html')">
+        <div class="icon-wrapper">📝</div>
+        <div class="card-content">
+            <div class="title">اللأمتحان النهائي</div>
+            <div class="subtitle2">Ujian akhir materi</div>
+        </div>
+    </div>
+
+    <div class="back">
+    <a href="index.html">⬅ العودة (Kembali)</a>
+</div>
+
+</div>
+
+<script>
+// Floating particles
+function createParticles() {
+    const container = document.getElementById('particles');
+    const count = 45;
+
+    for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 15 + 's';
+        p.style.animationDuration = 12 + Math.random() * 10 + 's';
+        container.appendChild(p);
+    }
+}
+
+// Ripple effect
+function ripple(event, el) {
+    const circle = document.createElement("span");
+    circle.classList.add("ripple");
+    const diameter = Math.max(el.clientWidth, el.clientHeight);
+    circle.style.width = circle.style.height = `${diameter}px`;
+
+    const rect = el.getBoundingClientRect();
+    circle.style.left = `${event.clientX - rect.left - diameter/2}px`;
+    circle.style.top = `${event.clientY - rect.top - diameter/2}px`;
+
+    el.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+}
+
+// Sound + animation
+function playClick(el) {
+    const s = document.getElementById("clickSound");
+    s.currentTime = 0;
+    s.volume = 0.3;
+    s.play();
+}
+
+// Navigation
+function go(page) {
+    setTimeout(() => {
+        window.location.href = page;
+    }, 200);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            ripple(e, card);
+        });
+    });
+});
+</script>
+
+</body>
+</html>

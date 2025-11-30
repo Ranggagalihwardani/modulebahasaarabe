@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>باب 4 – الحياة اليومية</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* PARTICLES BACKGROUND */
+.particles{
+    position:fixed;
+    width:100%;height:100%;
+    top:0;left:0;
+    pointer-events:none;
+    z-index:0;
+}
+.particle{
+    position:absolute;
+    width:5px;height:5px;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    animation:float 15s linear infinite;
+}
+
+/* HEADER */
+h1{
+    text-align:center;
+    padding-top:40px;
+    padding-bottom:10px;
+    font-size:2.4rem;
+    color:white;
+    font-weight:700;
+    text-shadow:0 4px 12px rgba(0,0,0,.4);
+    animation:fadeTop .7s ease;
+}
+.subtitle{
+    text-align:center;
+    color:white;
+    opacity:.9;
+    font-size:1rem;
+    margin-bottom:25px;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    margin-bottom:60px;
+    z-index:2;
+    position:relative;
+}
+
+/* CARD STYLE */
+.card{
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:23px;
+    margin-bottom:25px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+    transition:.35s;
+    cursor:pointer;
+    overflow:hidden;
+    transform:translateY(30px);
+    opacity:0;
+    animation:fadeUp .6s forwards;
+}
+
+.card:nth-child(1){animation-delay:.2s}
+.card:nth-child(2){animation-delay:.3s}
+.card:nth-child(3){animation-delay:.4s}
+.card:nth-child(4){animation-delay:.5s}
+.card:nth-child(5){animation-delay:.6s}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    background:linear-gradient(135deg,#e0c3fc,#8ec5fc);
+    box-shadow:0 20px 60px rgba(118,75,162,.45);
+}
+
+/* ICON INSIDE CARD */
+.card-icon{
+    font-size:60px;
+    margin-bottom:12px;
+    display:inline-block;
+    color:#444;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
+    transition:.35s;
+}
+.card:hover .card-icon{
+    transform:rotate(360deg) scale(1.15);
+}
+
+/* TITLE */
+.card-title{
+    font-size:1.7rem;
+    font-weight:700;
+    color:#1f1f1f;
+}
+.card-desc{
+    font-size:1rem;
+    color:#555;
+}
+
+/* BACK BUTTON */
+.back{
+    text-align:center;
+    margin-top:40px;
+}
+.back a{
+    display:inline-block;
+    padding:12px 25px;
+    background:rgba(255,255,255,.9);
+    border-radius:14px;
+    font-weight:600;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    transition:.3s;
+}
+.back a:hover{
+    transform:scale(1.05);
+    background:white;
+}
+
+/* RIPPLE */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.5);
+    transform:scale(0);
+    animation:rippleAnim .6s ease-out;
+}
+
+/* ANIMATIONS */
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes fadeTop{
+    from{opacity:0;transform:translateY(-25px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(35px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes rippleAnim{
+    to{transform:scale(4);opacity:0;}
+}
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="particles" id="particles"></div>
+
+<!-- SOUND EFFECT -->
+<audio id="clickSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f148d464e.mp3?filename=click-124467.mp3">
+</audio>
+
+<h1>📘 باب 4 – الحياة اليومية</h1>
+<p class="subtitle">Silakan pilih materi pembelajaran</p>
+
+<div class="container">
+
+    <div class="card" onclick="playClick(this); go('bab4_mufrodat.html')">
+        <div class="card-icon">📖</div>
+        <div class="card-title">المفردات</div>
+        <div class="card-desc">Daftar kosakata Bab 4</div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab4_qiroah.html')">
+        <div class="card-icon">📝</div>
+        <div class="card-title">النص</div>
+        <div class="card-desc">Teks bacaan Bab 4</div>
+    </div>
+
+    <div class="card" onclick="playClick(this); go('bab4_video.html')">
+    <div class="card-icon">🎬</div>
+    <div class="card-title">الفيديو</div>
+    <div class="card-desc">Video pembelajaran Bab 4</div>
+</div>
+
+
+    <div class="card" onclick="playClick(this); go('bab4_audio.html')">
+    <div class="card-icon">🎧</div>
+    <div class="card-title">الصوتيات</div>
+    <div class="card-desc">Audio Bab 4</div>
+</div>
+
+
+    
+
+</div>
+
+<div class="back">
+    <a href="menu_bab.html">⬅ العودة (Kembali)</a>
+</div>
+
+<script>
+// PARTICLES BACKGROUND
+function createParticles(){
+    const box=document.getElementById("particles");
+    for(let i=0;i<35;i++){
+        const p=document.createElement("div");
+        p.classList.add("particle");
+        p.style.left=Math.random()*100+"%";
+        p.style.animationDelay=Math.random()*5+"s";
+        p.style.animationDuration=12+Math.random()*10+"s";
+        box.appendChild(p);
+    }
+}
+
+// RIPPLE EFFECT
+function ripple(e,el){
+    const circle=document.createElement("span");
+    const d=Math.max(el.clientWidth,el.clientHeight);
+    const r=d/2;
+    circle.style.width=circle.style.height=d+"px";
+    circle.classList.add("ripple");
+    circle.style.left=e.clientX-el.getBoundingClientRect().left-r+"px";
+    circle.style.top=e.clientY-el.getBoundingClientRect().top-r+"px";
+    el.appendChild(circle);
+    setTimeout(()=>circle.remove(),600);
+}
+
+// SOUND EFFECT
+function playClick(el){
+    const s=document.getElementById("clickSound");
+    s.currentTime=0;
+    s.volume=0.3;
+    s.play();
+}
+
+// NAVIGATION
+function go(page){
+    setTimeout(()=>{window.location.href=page;},200);
+}
+
+// INIT
+document.addEventListener("DOMContentLoaded",()=>{
+    createParticles();
+    document.querySelectorAll(".card").forEach(card=>{
+        card.addEventListener("click",(e)=>ripple(e,card));
+    });
+});
+</script>
+
+</body>
+</html>

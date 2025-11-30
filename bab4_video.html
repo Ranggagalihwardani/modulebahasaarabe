@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فيديو الدرس – باب 4 الحياة اليومية</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* PARTICLES */
+.particles{
+    position:fixed;width:100%;height:100%;
+    top:0;left:0;pointer-events:none;z-index:0;
+}
+.particle{
+    position:absolute;width:5px;height:5px;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    animation:float 15s linear infinite;
+}
+
+/* HEADER */
+h1{
+    text-align:center;padding-top:40px;padding-bottom:10px;
+    font-size:2.3rem;color:white;font-weight:700;
+    text-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+.subtitle{
+    text-align:center;color:white;opacity:.9;
+    margin-bottom:25px;font-size:1rem;
+}
+
+/* CARD CONTAINER */
+.card{
+    width:90%;max-width:900px;margin:auto;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(14px);
+    padding:25px;
+    border-radius:25px;
+    margin-bottom:35px;
+    box-shadow:0 12px 40px rgba(0,0,0,.25);
+    animation:fadeUp .8s ease forwards;
+    transform:translateY(40px);
+    opacity:0;
+}
+
+.card h2{
+    font-size:1.6rem;
+    text-align:center;
+    margin-bottom:18px;
+    color:#333;
+    font-weight:700;
+}
+
+/* VIDEO BOX */
+.video-box{
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+
+/* Responsive Youtube/MP4 */
+.video-box iframe,
+.video-box video{
+    width:100%;
+    height:420px;
+}
+
+/* BACK BUTTON */
+.back{text-align:center;margin-bottom:50px;}
+.back a{
+    display:inline-block;padding:12px 25px;
+    background:rgba(255,255,255,.9);
+    border-radius:14px;
+    font-weight:600;
+    color:#333;text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+.back a:hover{transform:scale(1.05);background:white;}
+
+/* ANIMATIONS */
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(45px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="particles" id="particles"></div>
+
+<h1>🎬 فيديو الدرس</h1>
+<p class="subtitle">باب 4 – الحياة اليومية</p>
+
+
+<div class="card">
+    <h2>🎥 فيديو 1</h2>
+    <div class="video-box">
+        <video controls>
+            <source src="video/video4.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<div class="back">
+    <a href="bab4.html">⬅ العودة (Kembali)</a>
+</div>
+
+<script>
+function createParticles(){
+    const box=document.getElementById('particles');
+    for(let i=0;i<35;i++){
+        const p=document.createElement('div');
+        p.classList.add('particle');
+        p.style.left=Math.random()*100+'%';
+        p.style.animationDelay=Math.random()*5+'s';
+        p.style.animationDuration=12+Math.random()*10+'s';
+        box.appendChild(p);
+    }
+}
+document.addEventListener("DOMContentLoaded",()=>createParticles());
+</script>
+
+</body>
+</html>
