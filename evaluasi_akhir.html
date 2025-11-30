@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التقييم النهائي – Evaluasi Akhir</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+    background-size:400% 400%;
+    animation:gradFlow 15s ease infinite;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+h1{
+    text-align:center;padding-top:40px;padding-bottom:10px;
+    font-size:2.6rem;color:white;font-weight:700;
+    text-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.subtitle{
+    text-align:center;color:white;opacity:.9;
+    margin-bottom:25px;font-size:1.1rem;
+}
+
+/* CARD */
+.card{
+    width:92%;max-width:900px;margin:auto;
+    background:rgba(255,255,255,.93);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 14px 40px rgba(0,0,0,.28);
+    animation:fadeUp .8s forwards;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+/* SYARAT KETENTUAN */
+.rules{
+    text-align:left;
+    font-size:1rem;
+    color:#333;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+.rules strong{
+    color:#111;
+    font-size:1.05rem;
+}
+
+/* LINK BUTTON */
+.quiz-link{
+    font-size:1.2rem;
+    font-weight:700;
+    color:#333;
+    background:white;
+    padding:14px 25px;
+    border-radius:14px;
+    display:inline-block;
+    margin:10px 0 30px;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    transition:.3s;
+    text-decoration:none;
+}
+.quiz-link:hover{
+    transform:scale(1.06);
+    background:#f3f3f3;
+}
+
+/* BACK BUTTON */
+.back{text-align:center;margin-top:25px;margin-bottom:45px;}
+.back a{
+    display:inline-block;padding:12px 25px;
+    background:rgba(255,255,255,.92);
+    border-radius:14px;font-weight:600;
+    color:#333;text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+.back a:hover{
+    transform:scale(1.05);
+    background:white;
+}
+
+/* ANIMASI */
+@keyframes gradFlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%} }
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(45px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>📘 التقييم النهائي</h1>
+<p class="subtitle">Evaluasi Akhir Pembelajaran Bahasa Arab</p>
+
+<div class="card">
+
+    <h2 style="text-align:center; font-size:1.6rem; margin-bottom:18px;">
+        Syarat & Ketentuan Evaluasi Akhir
+    </h2>
+
+    <div class="rules">
+        <strong>1. </strong> Peserta wajib mengerjakan evaluasi secara mandiri. <br>
+        <strong>2. </strong> Gunakan nama lengkap sesuai identitas sekolah. <br>
+        <strong>3. </strong> Waktu pengerjaan maksimal sesuai instruksi guru. <br>
+        <strong>4. </strong> Pastikan koneksi internet stabil sebelum mulai. <br>
+        <strong>5. </strong> Hasil evaluasi digunakan untuk penilaian akhir . <br>
+        <strong>6. </strong> Tidak diperkenankan membuka buku atau bertanya kepada orang lain. <br>
+        <strong>7. </strong> Pastikan semua jawaban telah terisi sebelum submit. <br>
+    </div>
+
+    <h3 style="text-align:center; margin-bottom:18px; font-size:1.3rem;">
+        Klik tombol berikut untuk memulai evaluasi:
+    </h3>
+
+    <!-- LINK EVALUASI -->
+    <div style="text-align:center;">
+        <a class="quiz-link"
+           href="https://forms.gle/vRdXWfidmFyPoaMP6"
+           target="_blank">
+            🔗 Mulai Evaluasi Akhir (Google Form)
+        </a>
+    </div>
+
+</div>
+
+<div class="back">
+    <a href="menu_bab.html">⬅ العودة (Kembali)</a>
+</div>
+
+</body>
+</html>
